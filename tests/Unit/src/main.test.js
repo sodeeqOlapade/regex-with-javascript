@@ -18,4 +18,22 @@ describe("String Custom Methods", () => {
         expect('What is your name?'.isQuestion()).toBe(true);
       });
   });
+
+  describe("isDigit", () => {
+    it("returns false as '10' is not a digit", () => {
+      expect('10'.isDigit()).toBe(false);
+    });
+    it("returns true as  '1' is a digit", () => {
+        expect('1'.isDigit()).toBe(true);
+      });
+  });
+
+  describe("numberWords", () => {
+    it("returns text equivalent of a 324", () => {
+      expect('324'.numberWords()).toMatch('three two four');
+    });
+    it("returns text equivalent of a 100000", () => {
+        expect('100000'.numberWords()).toMatch('one zero zero zero zero zero');
+      });
+  });
 });
