@@ -47,10 +47,10 @@ describe("String Custom Methods", () => {
       expect("Regular Expression is fun".words()).toContain("Expression");
     });
     it("returns all words in the target sentence asan Array", () => {
-      expect("JavaScript all the way".words().length).toBeGreaterThanOrEqual(1);
-      expect("JavaScript all the way".words()).toBeDefined();
-      expect("JavaScript all the way".words()).toContain("JavaScript");
-      expect("JavaScript all the way".words()).toContain("way");
+      expect("The quick brown fox jumps over the lazy dog.".words().length).toBeGreaterThanOrEqual(1);
+      expect("The quick brown fox jumps over the lazy dog.".words()).toBeDefined();
+      expect("The quick brown fox jumps over the lazy dog.".words()).toContain("fox");
+      expect("The quick brown fox jumps over the lazy dog.".words()).toContain("dog");
     });
   });
 
@@ -63,5 +63,14 @@ describe("String Custom Methods", () => {
         "Cats are good pets, for they are clean and are not noisy.".wordCount()
       ).toBe(12);
     });
+  });
+
+  describe("toUpper", () => {
+    it("returns the uppercase equivalent of the given text", () => {
+      expect("jAvaScrIpt".toUpper()).toMatch('JAVASCRIPT');
+    });
+    it("returns the uppercase equivalent of the given text", () => {
+        expect("jest".toUpper()).toMatch('JEST');
+      });
   });
 });

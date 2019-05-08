@@ -35,8 +35,8 @@ String.prototype.numberWords = function() {
     },
     output = ""; //empty string output that will be mutated by for loop to generate final output
 
-  for (var i = 0; i < matches.length; i++) {
-    var currentNumberText = numbers[matches[i]]; //gets text equivalent of the current number the loop is on
+  for (var index = 0; index < matches.length; index++) {
+    var currentNumberText = numbers[matches[index]]; //gets text equivalent of the current number the loop is on
     output += currentNumberText + " "; // concatenates currentNumberText and space to output
   }
   return output; //returns output
@@ -56,4 +56,24 @@ String.prototype.wordCount = function() {
   return this.words().length; // returns the number of words in the target string by finding the length of array returned by words custom function
 };
 
+String.prototype.toUpper = function() {
+  var output = ""; //empty string output that will be mutated by for loop to generate final output
+
+  /**
+   * The for loop below uses ternary operator on each iteration
+   * to determine if a character is uppercase or lowercase using the unicode
+   * if it's lowercase, it's convertd to uppercase and concatenated with output
+   * if it's not lowrcase, it's just concatenated directly
+   */
+
+  for (var index = 0; index < this.length; index++) {
+    this.charCodeAt(index) >= 97
+      ? (output += String.fromCharCode(this.charCodeAt(index) - 32))
+      : (output += this[index]);
+  }
+
+  return output;
+};
+
+// console.log("jaVascriPt".toUpper());
 module.exports = { String };
