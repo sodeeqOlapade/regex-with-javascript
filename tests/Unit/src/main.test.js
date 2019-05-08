@@ -47,10 +47,18 @@ describe("String Custom Methods", () => {
       expect("Regular Expression is fun".words()).toContain("Expression");
     });
     it("returns all words in the target sentence asan Array", () => {
-      expect("The quick brown fox jumps over the lazy dog.".words().length).toBeGreaterThanOrEqual(1);
-      expect("The quick brown fox jumps over the lazy dog.".words()).toBeDefined();
-      expect("The quick brown fox jumps over the lazy dog.".words()).toContain("fox");
-      expect("The quick brown fox jumps over the lazy dog.".words()).toContain("dog");
+      expect(
+        "The quick brown fox jumps over the lazy dog.".words().length
+      ).toBeGreaterThanOrEqual(1);
+      expect(
+        "The quick brown fox jumps over the lazy dog.".words()
+      ).toBeDefined();
+      expect("The quick brown fox jumps over the lazy dog.".words()).toContain(
+        "fox"
+      );
+      expect("The quick brown fox jumps over the lazy dog.".words()).toContain(
+        "dog"
+      );
     });
   });
 
@@ -67,19 +75,25 @@ describe("String Custom Methods", () => {
 
   describe("toUpper", () => {
     it("returns the uppercase equivalent of jAvaScrIpt", () => {
-      expect("jAvaScrIpt".toUpper()).toMatch('JAVASCRIPT');
+      expect("jAvaScrIpt".toUpper()).toMatch("JAVASCRIPT");
     });
     it("returns the uppercase equivalent of jest", () => {
-        expect("jest".toUpper()).toMatch('JEST');
-      });
+      expect("jest".toUpper()).toMatch("JEST");
+    });
   });
 
   describe("toLower", () => {
     it("returns the lowercase equivalent of jAvaScrIpt", () => {
-      expect("jAvaScrIpt".toLower()).toMatch('javascript');
+      expect("jAvaScrIpt".toLower()).toMatch("javascript");
     });
     it("returns the lowercase equivalent of JEST", () => {
-        expect("JEST".toLower()).toMatch('jest');
-      });
+      expect("JEST".toLower()).toMatch("jest");
+    });
+  });
+
+  describe("ucFirst", () => {
+    it("converts the first character of a given string to capital", () => {
+      expect("john".ucFirst()).toMatch("John");
+    });
   });
 });

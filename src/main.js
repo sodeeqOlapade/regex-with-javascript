@@ -72,7 +72,7 @@ String.prototype.toUpper = function() {
       : (output += this[index]);
   }
 
-  return output;
+  return output;//retturs final output
 };
 
 
@@ -92,7 +92,19 @@ String.prototype.toLower = function() {
         : (output += this[index]);
     }
   
-    return output;
+  return output;//retturs final output
   };
-console.log("jaVascriPt".toLower());
+
+
+/*
+adds ucFirst methods to String prototype and it's implemented using
+the custom toUpper method added above
+*/
+  String.prototype.ucFirst = function(){
+    var firstCharacter = this[0].toUpper();//converts string's first character to uppercase
+    return firstCharacter + this.slice(1);// concatenates the uppercase first character to the rest of the string
+  }
+
+
+// console.log("stipend".ucFirst());
 module.exports = { String };
