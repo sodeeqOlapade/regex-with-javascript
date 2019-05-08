@@ -36,4 +36,19 @@ describe("String Custom Methods", () => {
         expect('100000'.numberWords()).toMatch('one zero zero zero zero zero');
       });
   });
+
+  describe("words", () => {
+    it("returns all words in the target sentence asan Array", () => {
+      expect('Regular Expression is fun'.words()).toBeDefined();
+      expect('Regular Expression is fun'.words().length).toBeGreaterThanOrEqual(1);
+      expect('Regular Expression is fun'.words()).toContain('Regular');
+      expect('Regular Expression is fun'.words()).toContain('Expression');
+    });
+    it("returns all words in the target sentence asan Array", () => {
+        expect('JavaScript all the way'.words().length).toBeGreaterThanOrEqual(1);
+        expect('JavaScript all the way'.words()).toBeDefined();
+        expect('JavaScript all the way'.words()).toContain('JavaScript');
+        expect('JavaScript all the way'.words()).toContain('way');
+    });
+});
 });
