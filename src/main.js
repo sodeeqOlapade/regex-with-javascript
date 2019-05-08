@@ -42,13 +42,18 @@ String.prototype.numberWords = function() {
   return output; //returns output
 };
 
-
 //adds words methods to String prototype
-String.prototype.words = function(){
-    var regExp = /\b[\w]+\b/g;//regular expression pattern that matches words in a sentence
-    return this.match(regExp);//returns the result of invoking the match method on target string(this) then passing regExp as argument 
-}
+String.prototype.words = function() {
+  var regExp = /\b[\w]+\b/g; //regular expression pattern that matches words in a sentence
+  return this.match(regExp); //returns the result of invoking the match method on target string(this) then passing regExp as argument
+};
 
-
+/*
+adds word methods to String prototype and it's implemented using
+the custom words method added above
+*/
+String.prototype.wordCount = function() {
+  return this.words().length; // returns the number of words in the target string by finding the length of array returned by words custom function
+};
 
 module.exports = { String };
