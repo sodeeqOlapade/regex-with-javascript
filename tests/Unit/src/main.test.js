@@ -66,11 +66,20 @@ describe("String Custom Methods", () => {
   });
 
   describe("toUpper", () => {
-    it("returns the uppercase equivalent of the given text", () => {
+    it("returns the uppercase equivalent of jAvaScrIpt", () => {
       expect("jAvaScrIpt".toUpper()).toMatch('JAVASCRIPT');
     });
-    it("returns the uppercase equivalent of the given text", () => {
+    it("returns the uppercase equivalent of jest", () => {
         expect("jest".toUpper()).toMatch('JEST');
+      });
+  });
+
+  describe("toLower", () => {
+    it("returns the lowercase equivalent of jAvaScrIpt", () => {
+      expect("jAvaScrIpt".toLower()).toMatch('javascript');
+    });
+    it("returns the lowercase equivalent of JEST", () => {
+        expect("JEST".toLower()).toMatch('jest');
       });
   });
 });

@@ -63,7 +63,7 @@ String.prototype.toUpper = function() {
    * The for loop below uses ternary operator on each iteration
    * to determine if a character is uppercase or lowercase using the unicode
    * if it's lowercase, it's convertd to uppercase and concatenated with output
-   * if it's not lowrcase, it's just concatenated directly
+   * if it's uppercase, it's just concatenated directly
    */
 
   for (var index = 0; index < this.length; index++) {
@@ -75,5 +75,24 @@ String.prototype.toUpper = function() {
   return output;
 };
 
-// console.log("jaVascriPt".toUpper());
+
+String.prototype.toLower = function() {
+    var output = ""; //empty string output that will be mutated by for loop to generate final output
+  
+    /**
+     * The for loop below uses ternary operator on each iteration
+     * to determine if a character is uppercase or lowercase using the unicode
+     * if it's uppercase, it's convertd to lowrcase and concatenated with output
+     * if it's lowrcase, it's just concatenated directly
+     */
+  
+    for (var index = 0; index < this.length; index++) {
+      this.charCodeAt(index) <= 90
+        ? (output += String.fromCharCode(this.charCodeAt(index) + 32))
+        : (output += this[index]);
+    }
+  
+    return output;
+  };
+console.log("jaVascriPt".toLower());
 module.exports = { String };
