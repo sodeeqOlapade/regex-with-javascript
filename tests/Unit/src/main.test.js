@@ -96,4 +96,10 @@ describe("String Custom Methods", () => {
       expect("john".ucFirst()).toMatch("John");
     });
   });
+
+  describe("alternatingCase", () => {
+    it("consverts Onomatopoeia to oNoMaToPoEiA", () => {
+      expect("Onomatopoeia".alternatingCase()).toMatch("oNoMaToPoEiA");
+    });
+  });
 });

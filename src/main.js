@@ -72,39 +72,46 @@ String.prototype.toUpper = function() {
       : (output += this[index]);
   }
 
-  return output;//retturs final output
+  return output; //retturs final output
 };
 
-
 String.prototype.toLower = function() {
-    var output = ""; //empty string output that will be mutated by for loop to generate final output
-  
-    /**
-     * The for loop below uses ternary operator on each iteration
-     * to determine if a character is uppercase or lowercase using the unicode
-     * if it's uppercase, it's convertd to lowrcase and concatenated with output
-     * if it's lowrcase, it's just concatenated directly
-     */
-  
-    for (var index = 0; index < this.length; index++) {
-      this.charCodeAt(index) <= 90
-        ? (output += String.fromCharCode(this.charCodeAt(index) + 32))
-        : (output += this[index]);
-    }
-  
-  return output;//retturs final output
-  };
+  var output = ""; //empty string output that will be mutated by for loop to generate final output
 
+  /**
+   * The for loop below uses ternary operator on each iteration
+   * to determine if a character is uppercase or lowercase using the unicode
+   * if it's uppercase, it's convertd to lowrcase and concatenated with output
+   * if it's lowrcase, it's just concatenated directly
+   */
+
+  for (var index = 0; index < this.length; index++) {
+    this.charCodeAt(index) <= 90
+      ? (output += String.fromCharCode(this.charCodeAt(index) + 32))
+      : (output += this[index]);
+  }
+
+  return output; //retturs final output
+};
 
 /*
 adds ucFirst methods to String prototype and it's implemented using
 the custom toUpper method added above
 */
-  String.prototype.ucFirst = function(){
-    var firstCharacter = this[0].toUpper();//converts string's first character to uppercase
-    return firstCharacter + this.slice(1);// concatenates the uppercase first character to the rest of the string
+String.prototype.ucFirst = function() {
+  var firstCharacter = this[0].toUpper(); //converts string's first character to uppercase
+  return firstCharacter + this.slice(1); // concatenates the uppercase first character to the rest of the string
+};
+
+String.prototype.alternatingCase = function() {
+  var output = "";
+  for (var index = 0; index < this.length; index++) {
+    index % 2 === 0
+      ? (output += this[index].toLower())
+      : (output += this[index].toUpper());
   }
+  return output;
+};
 
-
-// console.log("stipend".ucFirst());
+// console.log("stipend".alternatingCase());
 module.exports = { String };
