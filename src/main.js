@@ -86,9 +86,11 @@ String.prototype.toLower = function() {
    */
 
   for (var index = 0; index < this.length; index++) {
-    /[A-Z]/.test(this[index])
-      ? (output += String.fromCharCode(this.charCodeAt(index) + 32))
-      : (output += this[index]);
+    if(/[A-Z]/.test(this[index])){
+      output += String.fromCharCode(this.charCodeAt(index) + 32);
+    }else{
+      output += this[index];
+    }
   }
 
   return output; //retturs final output
