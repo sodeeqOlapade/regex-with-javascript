@@ -112,9 +112,11 @@ String.prototype.alternatingCase = function() {
    * toUpper methods defined above.
    */
   for (var index = 0; index < this.length; index++) {
-    index % 2 === 0
-      ? (output += this[index].toLower())
-      : (output += this[index].toUpper());
+    if (index % 2 === 0) {
+      output += this[index].toLower();
+    } else {
+      output += this[index].toUpper();
+    }
   }
   return output; // returns the final output
 };
