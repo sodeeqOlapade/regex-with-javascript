@@ -102,4 +102,10 @@ describe("String Custom Methods", () => {
       expect("Onomatopoeia".alternatingCase()).toMatch("oNoMaToPoEiA");
     });
   });
+
+  describe("inverseCase", () => {
+    it("inverts the case of each character in the string Mr. Ben ", () => {
+      expect("Mr. Ben".inverseCase()).toMatch("mR.bEN");
+    });
+  });
 });

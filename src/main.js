@@ -67,12 +67,12 @@ String.prototype.toUpper = function() {
    */
 
   for (var index = 0; index < this.length; index++) {
-    this.charCodeAt(index) >= 97
+    /[a-z]/.test(this[index])
       ? (output += String.fromCharCode(this.charCodeAt(index) - 32))
       : (output += this[index]);
   }
 
-  return output; //retturs final output
+  return output; //returns final output
 };
 
 String.prototype.toLower = function() {
@@ -86,7 +86,7 @@ String.prototype.toLower = function() {
    */
 
   for (var index = 0; index < this.length; index++) {
-    this.charCodeAt(index) <= 90
+    /[A-Z]/.test(this[index])
       ? (output += String.fromCharCode(this.charCodeAt(index) + 32))
       : (output += this[index]);
   }
@@ -104,14 +104,39 @@ String.prototype.ucFirst = function() {
 };
 
 String.prototype.alternatingCase = function() {
-  var output = "";
+  var output = ""; // output variable
+  /**
+   * the for loop below changes the character to lower or upper case
+   * depending on which index it's residing in by calling the toLower or
+   * toUpper methods defined above.
+   */
   for (var index = 0; index < this.length; index++) {
     index % 2 === 0
       ? (output += this[index].toLower())
       : (output += this[index].toUpper());
   }
-  return output;
+  return output; // returns the final output
 };
 
-// console.log("stipend".alternatingCase());
+String.prototype.inverseCase = function() {
+  var output = ""; //defines output variable
+  for (var index = 0; index < this.length; index++) {
+    if (/[a-z]/.test(this[index])) {
+      //checks if current character is in lowercase
+      var characterToUppercase = this[index].toUpper(); //converts current character to uppercase and saves it
+      output += characterToUppercase; // concatenates converted character to output
+    }
+    if (/[A-Z]/.test(this[index])) {
+      //checks if current character is in uppercase
+      var characterToLowercase = this[index].toLower(); //converts current character to lowercase and saves it
+      output += characterToLowercase; // concatenates converted character to output
+    }
+    if (/\./.test(this[index])) {
+      // checks if the current character is a dot
+      output += this[index]; //adds the dot character to the output
+    }
+  }
+  return output; // returns the final output
+};
+
 module.exports = { String };
