@@ -1,4 +1,4 @@
-# simple tarminal based e-commerce
+# Extending String Class in Javascript 
 
 > ### **Overview**
 
