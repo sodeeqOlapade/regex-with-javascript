@@ -108,4 +108,13 @@ describe("String Custom Methods", () => {
       expect("Mr. Ben".inverseCase()).toMatch("mR.bEN");
     });
   });
+
+  describe("fromCurrency", () => {
+    it("converts string 11,111.11 to 11111.11 ", () => {
+      expect("11,111.11".fromCurrency()).toMatch("11111.11");
+    });
+    it("converts string 1,2,3,4.1,1 to 11111.11 ", () => {
+        expect("1,2,3,4.1,1".fromCurrency()).toMatch("1234.11");
+      });
+  });
 });

@@ -103,6 +103,7 @@ String.prototype.ucFirst = function() {
   return firstCharacter + this.slice(1); // concatenates the uppercase first character to the rest of the string
 };
 
+//adds alternatingCase to String prototype
 String.prototype.alternatingCase = function() {
   var output = ""; // output variable
   /**
@@ -118,6 +119,7 @@ String.prototype.alternatingCase = function() {
   return output; // returns the final output
 };
 
+//adds inverseCase to String prototype
 String.prototype.inverseCase = function() {
   var output = ""; //defines output variable
   for (var index = 0; index < this.length; index++) {
@@ -137,6 +139,13 @@ String.prototype.inverseCase = function() {
     }
   }
   return output; // returns the final output
+};
+
+//adds fromCurrency to String prototype
+String.prototype.fromCurrency = function() {
+  var regExp = /,/g; //defines regular expresiion to match comma
+
+  return this.replace(regExp, ""); // uses the replace method to replace all commas with empty string in the targetted string
 };
 
 module.exports = { String };
