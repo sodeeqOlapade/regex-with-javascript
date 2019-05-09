@@ -113,8 +113,20 @@ describe("String Custom Methods", () => {
     it("converts string 11,111.11 to 11111.11 ", () => {
       expect("11,111.11".fromCurrency()).toMatch("11111.11");
     });
-    it("converts string 1,2,3,4.1,1 to 11111.11 ", () => {
-        expect("1,2,3,4.1,1".fromCurrency()).toMatch("1234.11");
-      });
+    it("converts string 1,2,3,4.1,1 to 1234.11 ", () => {
+      expect("1,2,3,4.1,1".fromCurrency()).toMatch("1234.11");
+    });
+  });
+
+  describe("toCurrency", () => {
+    it("converts string 11111.11 to 1currency format: 1,111.11 ", () => {
+      expect("11111.11".toCurrency()).toMatch("11,111.11");
+    });
+    it("converts string 1234.11 to currency format: 1,234.11 ", () => {
+      expect("1234.11".toCurrency()).toMatch("1,234.11");
+    });
+    it("converts string 123.11 to currency format: 123.11 ", () => {
+      expect("123.11".toCurrency()).toMatch("123.11");
+    });
   });
 });

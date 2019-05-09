@@ -148,4 +148,46 @@ String.prototype.fromCurrency = function() {
   return this.replace(regExp, ""); // uses the replace method to replace all commas with empty string in the targetted string
 };
 
+String.prototype.toCurrency = function() {
+  var regExp = /\d+(?=\.)/, //regular expression to match set of digits before dot
+    regExp1 = /(?<=\.)\d+/, //regular expression to match set of digits after dot
+    digitsBeforeDot = this.match(regExp)[0], //matches and saves digit before the dot
+    digitsAfterDot = this.match(regExp1)[0], //matches and saves digit after the dot
+    temporaryCharactersContainer = [], //an array for characters and inserted commas
+    counter = 0, // couter variable to track when and where a comma shuld be pushed into the temporaryCharacterContainer
+    output;
+
+  if (digitsBeforeDot.length <= 3) {
+    /**
+     * if characters before dot is lesser than or equal to 3,
+     * it returns it, no need for comma character
+     */
+    return digitsBeforeDot + "." + digitsAfterDot;
+  }
+
+  for (let index = digitsBeforeDot.length - 1; 0 <= index; index--) {
+    counter++; //increases counter variable at each iteration
+    temporaryCharactersContainer.push(digitsBeforeDot[index]); //pushes the next character into the temporaryCharacterContainer
+    if (counter % 3 === 0) {
+      //checks if counter equals 3 or it's multiple
+      temporaryCharactersContainer.push(","); // inserts a comma before the next character
+    }
+  }
+
+  /**
+   generates the final output by
+   (1) reversing the temporaryCharactersContainer to change the order 
+    of appearance of characters
+   (2) joins the reversed contents together with empty string as seperator
+   (3) concatenates the dot character to the string
+   (4) then adds the digitsAfterDot to the string
+   */
+
+  output =
+    temporaryCharactersContainer.reverse().join("") + "." + digitsAfterDot;
+  return output; //returns the final string
+};
+
+
+
 module.exports = { String };
