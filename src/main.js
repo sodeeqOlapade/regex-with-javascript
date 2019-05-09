@@ -22,22 +22,22 @@ String.prototype.numberWords = function() {
     matches = this.match(regExp), //array of matches from invoking match method on target string
     numbers = {
       //number object stores the text equivalent of all digits from 0-9
-      "0": "zero",
-      "1": "one",
-      "2": "two",
-      "3": "three",
-      "4": "four",
-      "5": "five",
-      "6": "six",
-      "7": "seven",
-      "8": "eight",
-      "9": "nine"
+      '0': 'zero',
+      '1': 'one',
+      '2': 'two',
+      '3': 'three',
+      '4': 'four',
+      '5': 'five',
+      '6': 'six',
+      '7': 'seven',
+      '8': 'eight',
+      '9': 'nine'
     },
-    output = ""; //empty string output that will be mutated by for loop to generate final output
+    output = ''; //empty string output that will be mutated by for loop to generate final output
 
   for (var index = 0; index < matches.length; index++) {
     var currentNumberText = numbers[matches[index]]; //gets text equivalent of the current number the loop is on
-    output += currentNumberText + " "; // concatenates currentNumberText and space to output
+    output += currentNumberText + ' '; // concatenates currentNumberText and space to output
   }
   return output; //returns output
 };
@@ -57,7 +57,7 @@ String.prototype.wordCount = function() {
 };
 
 String.prototype.toUpper = function() {
-  var output = ""; //empty string output that will be mutated by for loop to generate final output
+  var output = ''; //empty string output that will be mutated by for loop to generate final output
 
   /**
    * The for loop below uses ternary operator on each iteration
@@ -76,7 +76,7 @@ String.prototype.toUpper = function() {
 };
 
 String.prototype.toLower = function() {
-  var output = ""; //empty string output that will be mutated by for loop to generate final output
+  var output = ''; //empty string output that will be mutated by for loop to generate final output
 
   /**
    * The for loop below uses ternary operator on each iteration
@@ -105,7 +105,7 @@ String.prototype.ucFirst = function() {
 
 //adds alternatingCase to String prototype
 String.prototype.alternatingCase = function() {
-  var output = ""; // output variable
+  var output = ''; // output variable
   /**
    * the for loop below changes the character to lower or upper case
    * depending on which index it's residing in by calling the toLower or
@@ -121,7 +121,7 @@ String.prototype.alternatingCase = function() {
 
 //adds inverseCase to String prototype
 String.prototype.inverseCase = function() {
-  var output = ""; //defines output variable
+  var output = ''; //defines output variable
   for (var index = 0; index < this.length; index++) {
     if (/[a-z]/.test(this[index])) {
       //checks if current character is in lowercase
@@ -145,7 +145,7 @@ String.prototype.inverseCase = function() {
 String.prototype.fromCurrency = function() {
   var regExp = /,/g; //defines regular expresiion to match comma
 
-  return this.replace(regExp, ""); // uses the replace method to replace all commas with empty string in the targetted string
+  return this.replace(regExp, ''); // uses the replace method to replace all commas with empty string in the targetted string
 };
 
 String.prototype.toCurrency = function() {
@@ -162,7 +162,7 @@ String.prototype.toCurrency = function() {
      * if characters before dot is lesser than or equal to 3,
      * it returns it, no need for comma character
      */
-    return digitsBeforeDot + "." + digitsAfterDot;
+    return digitsBeforeDot + '.' + digitsAfterDot;
   }
 
   for (let index = digitsBeforeDot.length - 1; 0 <= index; index--) {
@@ -170,7 +170,7 @@ String.prototype.toCurrency = function() {
     temporaryCharactersContainer.push(digitsBeforeDot[index]); //pushes the next character into the temporaryCharacterContainer
     if (counter % 3 === 0) {
       //checks if counter equals 3 or it's multiple
-      temporaryCharactersContainer.push(","); // inserts a comma before the next character
+      temporaryCharactersContainer.push(','); // inserts a comma before the next character
     }
   }
 
@@ -184,10 +184,8 @@ String.prototype.toCurrency = function() {
    */
 
   output =
-    temporaryCharactersContainer.reverse().join("") + "." + digitsAfterDot;
+    temporaryCharactersContainer.reverse().join('') + '.' + digitsAfterDot;
   return output; //returns the final string
 };
-
-
 
 module.exports = { String };
