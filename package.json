@@ -1,0 +1,27 @@
+{
+  "name": "regex-with-javascript",
+  "version": "1.0.0",
+  "description": "> ### **Overview**",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sodeeqOlapade/regex-with-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sodeeqOlapade/regex-with-javascript/issues"
+  },
+  "homepage": "https://github.com/sodeeqOlapade/regex-with-javascript#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jest": "^24.8.0"
+  }
+}
