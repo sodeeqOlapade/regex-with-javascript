@@ -59,17 +59,13 @@ String.prototype.wordCount = function() {
 String.prototype.toUpper = function() {
   var output = ''; //empty string output that will be mutated by for loop to generate final output
 
-  /**
-   * The for loop below uses ternary operator on each iteration
-   * to determine if a character is uppercase or lowercase using the unicode
-   * if it's lowercase, it's convertd to uppercase and concatenated with output
-   * if it's uppercase, it's just concatenated directly
-   */
-
   for (var index = 0; index < this.length; index++) {
-    /[a-z]/.test(this[index])
-      ? (output += String.fromCharCode(this.charCodeAt(index) - 32))
-      : (output += this[index]);
+    if (/[a-z]/.test(this[index])) {
+      //checks if present character is in lowercase
+      output += String.fromCharCode(this.charCodeAt(index) - 32); //converts the character to it's uppercase equivalent and concatenates it to output
+    } else {
+      output += this[index]; //concatenates the character directly into output since it's already in lowercase
+    }
   }
 
   return output; //returns final output
@@ -77,19 +73,12 @@ String.prototype.toUpper = function() {
 
 String.prototype.toLower = function() {
   var output = ''; //empty string output that will be mutated by for loop to generate final output
-
-  /**
-   * The for loop below uses ternary operator on each iteration
-   * to determine if a character is uppercase or lowercase using the unicode
-   * if it's uppercase, it's convertd to lowrcase and concatenated with output
-   * if it's lowrcase, it's just concatenated directly
-   */
-
   for (var index = 0; index < this.length; index++) {
-    if(/[A-Z]/.test(this[index])){
-      output += String.fromCharCode(this.charCodeAt(index) + 32);
-    }else{
-      output += this[index];
+    if (/[A-Z]/.test(this[index])) {
+      //checks if present character is in uppercase
+      output += String.fromCharCode(this.charCodeAt(index) + 32); //converts the character to it's lowecase equivalent and concatenates it to output
+    } else {
+      output += this[index]; //concatenates the character directly into output since it's already in uppercase
     }
   }
 
@@ -108,16 +97,13 @@ String.prototype.ucFirst = function() {
 //adds alternatingCase to String prototype
 String.prototype.alternatingCase = function() {
   var output = ''; // output variable
-  /**
-   * the for loop below changes the character to lower or upper case
-   * depending on which index it's residing in by calling the toLower or
-   * toUpper methods defined above.
-   */
+
   for (var index = 0; index < this.length; index++) {
     if (index % 2 === 0) {
-      output += this[index].toLower();
+      //determines on at index it should convert to lowercase or uppercase
+      output += this[index].toLower(); //changes the current character into lowercase
     } else {
-      output += this[index].toUpper();
+      output += this[index].toUpper(); //changes the current character into uppercase
     }
   }
   return output; // returns the final output
@@ -178,17 +164,8 @@ String.prototype.toCurrency = function() {
     }
   }
 
-  /**
-   generates the final output by
-   (1) reversing the temporaryCharactersContainer to change the order 
-    of appearance of characters
-   (2) joins the reversed contents together with empty string as seperator
-   (3) concatenates the dot character to the string
-   (4) then adds the digitsAfterDot to the string
-   */
-
   output =
-    temporaryCharactersContainer.reverse().join('') + '.' + digitsAfterDot;
+    temporaryCharactersContainer.reverse().join('') + '.' + digitsAfterDot; //the reverse method reverses the order of apperance of elments of temporaryCharactersContainer, join them all into a string by the join method then all concatenated togetheer into a string
   return output; //returns the final string
 };
 
